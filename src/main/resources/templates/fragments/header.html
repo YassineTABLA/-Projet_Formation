@@ -1,0 +1,46 @@
+<div class="container-fluid">
+	<div class="d-flex align-items-center">
+		<div class="site-logo mr-auto">
+			<a href="/index"><img src="/images/LogoV1.svg"></img></a>
+		</div>
+
+		<div class="mx-auto text-center">
+			<nav class="site-navigation position-relative text-right"
+				role="navigation">
+				<ul
+					class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+					<li><a href="/index" class="nav-link">Acceuil</a></li>
+					<li><a href="/formation" class="nav-link">Formations</a></li>
+					<li><a href="/myformations" class="nav-link"
+						th:if="${#request.userPrincipal != null and !isFormateur }">Mes Formations</a></li>
+					<li><a href="/formation/add" class="nav-link"
+						th:if="${isFormateur and #request.userPrincipal != null}">Creer
+							une formation</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="ml-auto w-25">
+			<nav class="site-navigation position-relative text-right"
+				role="navigation">
+				<ul th:if="${#request.userPrincipal == null}"
+					class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+					<li class="cta"><a href="/login" class="nav-link"><span>Se
+								connecter</span></a></li>
+				</ul>
+				<div class="dropdown" th:if="${#request.userPrincipal != null}">
+					<button type="button" class="btn btn-primary dropdown-toggle"
+						data-toggle="dropdown">Mon compte</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/updateUser">Modifier mon compte</a> <a
+							class="dropdown-item" href="/password">Modifier mon mot de passe</a> <a
+							class="dropdown-item" href="/logout">Se deconnecter</a>
+					</div>
+				</div>
+			</nav>
+			<a href="#"
+				class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span
+				class="icon-menu h3"></span></a>
+		</div>
+	</div>
+</div>

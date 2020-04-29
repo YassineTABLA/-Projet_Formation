@@ -1,0 +1,62 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="evaluation/head :: head"></head>
+
+<body>
+	<form th:action="@{/evaluation/add}" method="post" th:object="${evaluation}">
+		
+		<input type="hidden" th:field="*{idEvaluation}" />	
+	
+	  <div class="form-group">
+	    <label>Formation :</label>
+	    <select th:value="*{formation}">
+		    <option th:each="fm : ${formations}" th:value="${fm.idFormation}" th:text="${fm.nomFormation}"
+		    th:selected="(${fm.idFormation} == *{formation.idFormation})">
+		    </option>
+		</select>
+	  </div>
+	  <div class="form-group">
+	    <label>Espace du travail :</label>
+	    <input type="text" class="form-control" placeholder="Espace du travail" name="espaceTravail" th:value="*{espaceTravail}"/>
+	  </div>
+	  <div class="form-group">
+	    <label>Proproté :</label>
+	    <input type="text" class="form-control" placeholder="Proproté" name="proprote" th:value="*{proprote}"/>
+	  </div>
+	  <div class="form-group">
+	    <label>Materiel :</label>
+	    <input type="text" class="form-control" placeholder="Materiel" name="materiel" th:value="*{materiel}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Competence du formateur :</label>
+    	<input type="text" class="form-control" placeholder="Competence du formateur" name="competenceFormateur" th:value="*{competenceFormateur}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Maitrise du formateur :</label>
+    	<input type="text" class="form-control" placeholder="Maitrise du formateur" name="maitriseFormateur" th:value="*{maitriseFormateur}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Explication :</label>
+    	<input type="text" class="form-control" placeholder="Explication" name="explication" th:value="*{explication}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Disponibilité du formateur :</label>
+    	<input type="text" class="form-control" placeholder="Disponibilité du formateur" name="disponibiliteFormateur" th:value="*{disponibiliteFormateur}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Gentillesse du formateur :</label>
+    	<input type="text" class="form-control" placeholder="Gentillesse du formateur" name="gentillesseFormateur" th:value="*{gentillesseFormateur}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Interêt du sujet :</label>
+    	<input type="text" class="form-control" placeholder="Interêt du sujet" name="interetSujet" th:value="*{interetSujet}"/>
+	  </div>
+	  <div class="form-group">
+	    <label >Atteinte des objectifs :</label>
+    	<input type="text" class="form-control" placeholder="Atteinte des objectifs" name="atteinteObjectif" th:value="*{atteinteObjectif}"/>
+	  </div>
+	  
+	  <input type="submit" class="btn btn-primary" value="Modifier"/>
+	</form>
+</body>
+
+</html>

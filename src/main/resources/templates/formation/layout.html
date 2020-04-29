@@ -1,0 +1,82 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div class="wrapper form-group" th:fragment="chapitres">
+
+  <div class="buttons col-6">
+  <h3 style="color: black">Chapitres :
+    <a class="clone btn btn-sm btn-success" title="Ajouter chapitre">+</a>
+    <a class="remove btn btn-sm btn-danger" title="Supprimer chapitre">-</a>
+  </h3>
+  </div>
+  <div class="labels col-6">
+  	<div class="form-row">
+  		<div class="col">
+	  		<label >Nom</label>
+	  	</div>
+	  	<div class="col">
+	  		<label >Temps</label>
+	  	</div>
+	  	<div class="col">
+	  		<label >Prix</label>
+	  	</div>
+	</div>
+  </div>
+  <div class="element col-6 form-group">
+  	<div class="form-row">
+  	<div class="col">
+  		<input type="text" id="chapitres0.nomChapitre" name="chapitres[0].nomChapitre"/>
+  	</div>
+  	<div class="col">
+  		<input type="text" id="chapitres0.temps" name="chapitres[0].temps"/>
+  	</div>
+  	<div class="col">
+  		<input type="text" id="chapitres0.prix" name="chapitres[0].prix"/>
+  	</div>
+  </div>
+  </div>
+
+  <div class="results"> </div>
+  
+</div>
+
+<div class="wrapper form-group" th:fragment="chapitres_update">
+
+  <div class="buttons col-6">
+  <h3>Chapitres :
+  </h3>
+  </div>
+  <div class="labels col-6">
+  	<div class="form-row">
+  		<div class="col">
+	  		<label >Nom</label>
+	  	</div>
+	  	<div class="col">
+	  		<label >Temps</label>
+	  	</div>
+	  	<div class="col">
+	  		<label >Prix</label>
+	  	</div>
+	</div>
+  </div>
+  <div class="col-6 form-group" th:each="chapitre, itemStat : ${chapitresdto.chapitres}">
+  	<div class="form-row">
+  	<div class="col">
+  		<input type="hidden" th:field="*{chapitres[__${itemStat.index}__].idChapitre}"/>
+  	</div>
+  	<div class="col">
+  		<input type="text" th:field="*{chapitres[__${itemStat.index}__].nomChapitre}"/>
+  	</div>
+  	<div class="col">
+  		<input type="text" th:field="*{chapitres[__${itemStat.index}__].temps}"/>
+  	</div>
+  	<div class="col">
+  		<input type="text" th:field="*{chapitres[__${itemStat.index}__].prix}"/>
+  	</div>
+  	
+  </div>
+  </div>
+
+  
+</div>
+
+</html>

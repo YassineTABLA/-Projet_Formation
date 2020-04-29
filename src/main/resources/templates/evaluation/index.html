@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="evaluation/head :: head"></head>
+<body>
+
+	<a class="btn btn-primary" th:href="@{/evaluation/add}">Ajouter</a>
+
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Formation</th>
+				<th>Espace du travail</th>
+				<th>Proproté</th>
+				<th>Materiel</th>
+				<th>Competence du formateur</th>
+				<th>Maitrise du formateur</th>
+				<th>Explication</th>
+				<th>Disponibilité du formateur</th>
+				<th>Gentillesse du formateur</th>
+				<th>Interêt du sujet</th>
+				<th>Atteinte des objectifs</th>
+				<th>Modifier</th>
+				<th>Supprimer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ev : ${evaluations}">
+				<td th:text="${ev.formation.nomFormation}"></td>
+				<td th:text="${ev.espaceTravail}"></td>
+				<td th:text="${ev.proprote}"></td>
+				<td th:text="${ev.materiel}"></td>
+				<td th:text="${ev.competenceFormateur}"></td>
+				<td th:text="${ev.maitriseFormateur}"></td>
+				<td th:text="${ev.explication}"></td>
+				<td th:text="${ev.disponibiliteFormateur}"></td>
+				<td th:text="${ev.gentillesseFormateur}"></td>
+				<td th:text="${ev.interetSujet}"></td>
+				<td th:text="${ev.atteinteObjectif}"></td>
+				<td><a class="btn btn-danger"
+					th:href="'/evaluation/update/'+${ev.idEvaluation}">Modifier</a></td>
+				<td><a class="btn btn-danger"
+					th:href="'/evaluation/delete/'+${ev.idEvaluation}">Supprimer</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
